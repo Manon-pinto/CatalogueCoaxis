@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catalogue</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+    
+    @font-face {
+    font-family: 'NeoSansProLight';
+    src: url('typo/NeoSansProLight.OTF') format('opentype');
+    font-weight: 300; /* ou 'normal' si c'est la seule version légère */
+}
+
+@font-face {
+    font-family: 'NeoSansProRegular';
+    src: url('typo/NeoSansProRegular.OTF') format('opentype');
+    font-weight: 400; /* 'normal' */
+}
+
+@font-face {
+    font-family: 'NeoSansProBold';
+    src: url('typo/NeoSansProBold.OTF') format('opentype');
+    font-weight: 700; /* ou 'bold' */
+}
+
+body {
+   font-family: 'NeoSansProLight', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+  strong {
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 0.2em;
+  }
+  
+                table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+        .column-title {
+            width: 25%;
+        }
+        .column-description {
+            width: 75%;
+        }
+.header h1 {
+    font-family: 'NeoSansProBold', sans-serif;
+    font-size: 2.5rem; /* Taille ajustée */
+}
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: #25588d;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.541);
+        }
+.container-fluid {
+    margin-top: 200px; /* Ajoutez une marge équivalente à la hauteur du header */
+}
+
+        .logo-container {
+            height: 100px;
+            text-align: left;
+        }
+
+        .logo {
+            max-width: 150%;
+            height: 150px;
+            margin-left: 30px;
+            object-fit: contain;
+        }
+
+        .title {
+            flex-grow: 1;
+            font-size: 2.5rem; /* Taille ajustée */
+            font-family: 'Neo Sans Pro Bold', sans-serif;
+            text-align: left;
+        }
+
+        .nav-container {
+            background-color: #DEEBD5;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            height: calc(100vh - 60px);
+            overflow-y: auto;
+            position: fixed;
+            top: 130px;
+            left: 0;
+            bottom: 0;
+            width: 15%;
+        }
+
+        .nav {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .nav-item {
+            margin-top: 50px;
+            margin-bottom: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .nav-link {
+                font-family: 'NeoSansProRegular', sans-serif;
+            text-decoration: none;
+            color: black;
+            transition: font-size 0.3s ease-in-out;
+        }
+
+        .nav-link:hover {
+            color: #031668;
+            font-size: 1.2em;
+        }
+
+        .nav-link.active {
+            font-weight: bold;
+            color: #76bc21;
+        }
+
+        .content {
+                font-family: 'NeoSansProRegular', sans-serif;
+            margin-top: 200px;
+            margin-bottom: 200px;
+            padding: 0px;
+            margin-left: 20%;
+            box-shadow: 0 4px 8px rgba(255, 118, 26, 0.918);
+        }
+
+
+.container-fluid {
+    flex: 1;
+    margin-top: 130px;
+    min-height: calc(100vh - 370px); /* 100% de la hauteur de la fenêtre moins la hauteur de la sidebar et du header */
+}
+        .title-mentions {
+            color: #25588d; /* Bleu similaire au header */
+            margin-top: 120px; /* Pour donner un espace sous le header */
+        }
+
+
+/* Footer : position relative pour le maintenir en bas */
+footer {
+    background-color: #333;
+    color: white;
+    padding: 1%;
+    width: 100%;
+    font-family: 'NeoSansProLight', sans-serif;
+    position: relative; /* Pour que le footer reste en bas et non fixé */
+    margin-top: 20px; /* Espacement pour le footer */
+}
+
+/* Styles supplémentaires pour le footer si nécessaire */
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    margin: 10px;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}
+
+/* Section Contact */
+.footer-contact {
+    font-size: 22px;
+    margin-left: 4.5%;
+}
+
+.footer-contact a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-contact a:hover {
+    text-decoration: underline;
+}
+
+/* Section Lien central */
+.footer-center {
+    font-size: 17px;
+    flex: 1;
+    text-align: center;
+}
+
+.footer-center a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-center a:hover {
+    text-decoration: underline;
+}
+
+/* Section Copyright et Mentions légales */
+.footer-right {
+    color: white;
+    text-align: right;
+    font-size: 13px;
+}
+
+.footer-right a {
+    color: white;
+    text-decoration: none;
+}
+
+.footer-right a:hover {
+    text-decoration: underline;
+}
+
+/* Logo LinkedIn */
+.linkedin-logo {
+    width: 5%;
+    height: auto;
+    margin-top: 10px;
+}
+
+
+        @media (max-width: 768px) {
+            .header {
+                position: static;
+            }
+
+            .nav-container {
+                width: 100%;
+                height: auto;
+                position: static;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                padding: 10px 0;
+            }
+
+            .nav-item {
+                margin: 10px;
+            }
+
+            .content {
+                margin-left: 0;
+                margin-top: 20px;
+                box-shadow: none;
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .content {
+                margin-top: 20px;
+            }
+
+            .scroll-container {
+                font-size: 14px;
+                padding: 5px;
+            }
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Logo" class="logo">
+        </div>
+        <h1>Catalogue de produits</h1>
+    </header>
+    
+    <!-- Navbar et Contenu -->
+    <div class="container-fluid">
+        <!-- Sidebar (Nav) -->
+        <nav class="nav-container">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="index.php">Accueil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="portable.php">PC Portables</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="fixe.php">PC Fixes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ecran.php">Ecrans</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="tablette.php">Tablettes</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="accessoire.php">Accessoires</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="resume.php">Résumé</a>
+                </li>
+            </ul>
+        </nav>
+        
+    <div class="container-fluid">
+        <div class="container">
+            <!-- Titre "Mentions légales" avec la classe personnalisée -->
+            <h1 class="title-mentions"><strong>Mentions légales</strong></h1><br><br>
+                
+            <p><strong>« Politique de confidentialité du 13/05/2022 »</strong><br>
+            La présente politique de confidentialité définit et informe de la manière dont COAXIS utilise et protège les informations que l’Utilisateur transmet, le cas échéant, lorsqu’il visite le présent site accessible à partir de l’URL https://www.coaxis.com<br>
+            Cette politique de confidentialité est susceptible d’être modifiée ou complétée à tout moment par COAXIS, notamment en vue de se conformer à toute évolution législative, réglementaire, jurisprudentielle ou technologique. Dans un tel cas, la date de sa mise
+            à jour sera clairement identifiée en tête de la présente politique. Ces modifications engagent l’Utilisateur dès leur mise en ligne. Il convient par conséquent que l’Utilisateur consulte régulièrement la présente politique de confidentialité et d’utilisation 
+            des cookies afin de prendre connaissance de ses éventuelles modifications.<br>
+            Ainsi, COAXIS invite ses Utilisateurs à prendre régulièrement connaissance de la présente politique de protection des données. COAXIS rappelle également, que la présente politique applicable aux Utilisateurs est celle en vigueur au jour de leur consultation.<br><br>
+            
+            <strong>Définitions</strong><br> 
+            <strong><em> Adresse IP </em> </strong>: l’adresse IP est un numéro d’identification attribué à chaque ordinateur sur le réseau informatique.<br>
+            <strong><em> Cookie (informatique)</em>  </strong>: un cookie est un petit fichier texte qui s’enregistre sur le navigateur de l’internaute lorsqu’il navigue sur une page web.<br>
+            <strong><em> Compte</em>  </strong>: ensemble de ressources informatiques attribuées à l’Utilisateur et ne pouvant être exploité par celui-ci que par l’intermédiaire d’un système d’enregistrement nécessitant un mot de passe et identifiant personnels et confidentiels.<br>
+            <strong><em> CNIL</em>  </strong>: Commission Nationale de l’Informatique et des Libertés. La CNIL est une Autorité Administrative Indépendante (AAI) créée par la loi informatique et libertés du 6 janvier 1978. Elle est chargée de veiller à la protection des DCP contenues dans les fichiers et traitements informatiques ou papiers, aussi bien publics que privés.<br>
+            <strong><em> Data center </em> </strong>: un Data center, en français « centre de données », est un lieu (et un service) composé d’un réseau d’ordinateurs et d’espaces de stockages. Il est utilisé par les entreprises pour stocker un grand volume de données.<br>
+            <strong><em> Données à caractère personnel (DCP)</em> </strong>: « toute informations se rapportant à une personne physique identifiée ou identifiable (ci-après dénommée « personne concernée ») ; est réputée être une « personne physique identifiable » une personne physique qui peut être identifiée, directement, notamment par référence à un identifiant, tel qu’un nom, un numéro d’identification, des données de localisation, un identifiant en ligne, ou à un ou plusieurs éléments spécifiques propres à son identité physique, physiologique, génétique, psychique, économique, culturelle ou sociale » (article 4 (1) du règlement européen 2016/679 – règlement général pour la protection des données – RGPD du 27 avril 2016).<br>
+            <strong><em> Prestataire tiers</em> </strong> : prestataire proposant une solution intégrée aux services et applications de COAXIS mais n’étant pas éditée par COAXIS.<br>
+            <strong><em> Responsable de traitement</em> </strong> : « personne physique ou morale, l’autorité publique, le service ou un autre organisme qui, seul ou conjointement avec d’autres, détermine les finalités et les moyens du traitement » (article 4 (1) du règlement européen 2016/679 – règlement général pour la protection des données – RGPD du 27 avril 2016).<br>
+            <strong><em> RGPD</em>  </strong>: Le Règlement de l’Union européenne constitue le texte de référence en matière de protection des DCP. Il renforce et unifie la protection des données pour les individus au sein de l’Union européenne. COAXIS y est donc soumis que ce soit pour les DCP en interne ou externe (clients, prospects, etc.).<br>
+            <strong><em> Tiers</em> </strong>: Personnes physiques ou morales qui ne sont pas liées à COAXIS.<br>
+            <strong><em> Traitement de données </em> </strong>: « toute opération ou tout ensemble d’opérations effectuées ou non à l’aide de procédés automatisés et appliquées à des données ou des ensemble de données à caractère personnel, telles que la collecte, l’enregistrement, l’organisation, la structuration, la conservation, l’adaptation ou la modification, l’extraction, la consultation, l’utilisation, la communication par transmission, la diffusion ou toute autre forme de mise à disposition, le rapprochement ou l’interconnexion, la limitation, l’effacement ou la destruction » (article 4 (2) du règlement européen 2016/679 – règlement général pour la protection des données – RGPD du 27 avril 2016).<br>
+            <strong><em> Utilisateur</em>  </strong>: Personne qui accède aux sites, aux applications et aux services de COAXIS.<br><br>
+
+            <strong>Responsable de traitement</strong><br>
+            CHARTRES métropole innovations numériques (COAXIS) est l’organisme responsable du traitement de vos données :<br>
+            Siège social :<br>
+            2322 ROUTE DU LATERAL, 47400 FAUGUEROLLES<br>
+            Tél. : 05 53 83 79 77<br>
+            Le délégué à la protection des données de COAXIS est joignable à l’adresse électronique suivante : dpo@coaxis.com<br><br>
+
+            <strong>Hébergement</strong><br>
+            L’ensemble des données personnelles collectées par COAXIS sont hébergées en France métropolitaine, dans les bâtiments techniques du siège social COAXIS qui offrent un niveau de sécurité certifié ISO 27001.<br>
+            Adresse :<br>
+            COAXIS ASP 2322 Route du Latéral 47400 FAUGUEROLLES<br><br>
+
+            La réalisation et l’actualisation du site  sont assurées par la société Classe 7 Communication .<br>
+            Adresse :<br>
+            Classe 7 Communication 1 rue Alain Bombard 44800 Saint-Herblain<br><br>
+
+            <strong>Les données personnelles</strong><br>
+            <strong><em>Finalité et fondements de licéité</em> </strong><br>
+            COAXIS collecte les données de ses Utilisateurs pour les finalités suivantes :<br>
+
+            <ul>
+                <li>Gestion des demandes clients et prospects<br></li>
+                <li>Gestion des candidatures à des offres d’emplois<br></li>
+                <li>Gestion de l’audience du site www.coaxis.com (statistiques de visites)<br></li>
+            </ul>
+            
+            <strong>Données traitées, Durée de conservation, Destinataires de données</strong><br>
+            Conformément à l’article 5 du RGPD, COAXIS ne collecte que les données « adéquates, pertinentes et limitées à ce qui est nécessaire au regard des finalités pour lesquelles elles sont traitées (minimisation des données) ». Ainsi, COAXIS ne collecte que les données<br> nécessaires à la fourniture de ses services.<br>
+            Le principe général est que les données transmises par l’Utilisateur à COAXIS ne sont conservées que pendant les durées suivantes :<br><br>
+
+            <ul>
+                <li>Prospects : 5 ans à compter :<br></li>
+                <li>de la collecte de la donnée<br></li>
+                <li>ou du dernier contact émanant du prospect : demande de documentation, click sur un lien dans un courriel<br><br></li>
+                <li>Clients : pendant toute la relation contractuelle + 5 ans<br></li>
+                <li>Candidats : 2 ans à partir du traitement de la candidature initiale<br></li>
+                <li>Statistiques du site : 12 mois révolus<br></li>
+            </ul>
+            Vos données à caractère personnel sont destinées aux services et personnels habilités de COAXIS.<br>
+            Certaines données peuvent également être communiquées à des services des filiales du groupe COAXIS pour des finalités commerciales. COAXIS peut communiquer les données à caractère personnel de ses Utilisateurs à tout organisme ou autorité autorisé à en faire la demande dans le cadre d’une procédure de réquisition de données prévue par des dispositions légales.<br>
+            Vous pouvez ainsi obtenir plus d’information sur les catégories de données traitées par COAXIS en contactant le DPO dpo@coaxis.com.<br><br>
+
+            <strong>Mesure de sécurité</strong><br>
+            Conformément à l’article 5 (f) du RGPD, COAXIS traite les données de ses Utilisateurs de « façon à garantir une sécurité appropriée des données à caractère personnel, y compris la protection contre le traitement non autorisé ou illicite et contre la perte, la destruction ou les dégâts d’origine accidentelle, à l’aide de mesures techniques ou organisationnelles appropriées (intégrité et confidentialité) ». Ainsi COAXIS a pris les précautions utiles et nécessaires afin de préserver la sécurité et la confidentialité des données et notamment empêcher qu’elles ne soient déformées, endommagées ou communiquées à des personnes non autorisées. Dans ce cadre, COAXIS fait l’objet d’audits de certification ISO 27001 annuels par un organisme tiers.<br><br>
+
+            <strong>Collecte de l’adresse IP et gestion des cookies</strong><br>
+            COAXIS collecte l’adresse IP de tout Utilisateur qui navigue sur ses sites afin d’en analyser le trafic et ainsi fournir à l’Utilisateur une meilleure qualité de services.<br>
+            Conformément à la délibération n°2013-378 de la CNIL du 5 décembre 2013 portant adoption d’une recommandation relative aux cookies et aux autres traceurs visés par l’article 32-II de la loi du 6 janvier 1978, COAXIS vous informe qu’elle utilise des cookies sur son site web. Ces cookies consistent en l’installation de petits fichiers texte sur le disque dur des internautes afin de pouvoir faciliter leurs navigations sur le site de COAXIS. Ils permettent également à COAXIS d’établir des statistiques de performances de son site, mais ne collectent en aucun cas de données sur votre ordinateur.<br>
+            Les cookies utilisés par COAXIS sont les cookies strictement nécessaires au fonctionnement du site. Ils ne collectent aucunes données sur les Utilisateurs et ne peuvent pas être désactivés.<br><br>
+
+            <strong>Vos droits</strong><br>
+            Les Utilisateurs des sites et services de COAXIS conservent la maîtrise exclusive des données qu’ils nous ont transmis.<br>
+            Conformément aux dispositions du RGPD, les Utilisateurs dont les données à caractère personnel sont collectées peuvent exercer les droits suivants :<br>
+            
+            <table>
+    <tr>
+        <th class="column-title">Droits</th>
+        <th class="column-description">Descriptions</th>
+    </tr>
+    <tr>
+        <td><strong>Droit d'accès</strong></td>
+        <td>La personne concernée a le droit d’obtenir du responsable du traitement la confirmation que des données à caractère personnel la concernant sont ou ne sont pas traités et, lorsqu’elles le sont, l’accès auxdites données à caractère personnel.</td>
+    </tr>
+    <tr>
+        <td><strong>Droit à la rectification</strong></td>
+        <td>La personne concernée a le droit d’obtenir du responsable du traitement, dans les meilleurs délais, la rectification des données à caractère personnel la concernant qui sont inexactes ou incomplètes.</td>
+    </tr>
+    <tr>
+        <td><strong>Droit à l'effacement</strong></td>
+        <td>La personne concernée a le droit d’obtenir du responsable de traitement l’effacement, dans les meilleurs délais, de données à caractère personnel la concernant.</td>
+    </tr>
+    <tr>
+        <td><strong>Droit d'opposition</strong></td>
+        <td>La personne concernée a le droit de s’opposer à tout moment, pour des raisons tenant à sa situation particulière, à un traitement des données à caractère personnel la concernant.</td>
+    </tr>
+    <tr>
+        <td><strong>Droit à la limitation du traitement</strong></td>
+        <td>La personne concernée a le droit d’obtenir du responsable du traitement la limitation du traitement lorsque l’un des éléments suivants s’applique : l’exactitude des données à caractère personnel est contestée par la personne concernée ; le traitement est illicite et la personne concernée s’oppose à leur effacement ; le responsable du traitement n’a plus besoin des données à caractère personnel aux fins du traitement mais celles-ci sont encore nécessaires à la personne concernée pour la constatation, l’exercice ou la défense de droits en justice ; la personne concernée s’est opposée au traitement en vertu de l’article 21, paragraphe, pendant la vérification portant sur le point de savoir si les motifs légitimes poursuivis par le responsable du traitement prévalent sur ceux de la personne concernée.</td>
+    </tr>
+    <tr>
+        <td><strong>Droit à la portabilité des données</strong></td>
+        <td>Les personnes concernées ont le droit de recevoir les données à caractère personnel les concernant qu’elles ont fournies à un responsable du traitement, dans un format structuré, couramment utilisé et lisible par machine, et ont le droit de transmettre ces données à un autre responsable du traitement sans que le responsable du traitement auquel les données à caractère personnel ont été communiquée y fasse obstacle.</td>
+    </tr>
+</table>
+<br><br>
+            
+            S’ils souhaitent exercer l’un de ces droits, ou s’ils ont une question à propos du traitement qui est fait de leurs données à caractère personnel, les utilisateurs peuvent s’adresser :<br>
+            Par courrier électronique à dpo@coaxis.com<br>
+            Par courrier postal à l’attention du DPO, 2322 ROUTE DU LATERAL, 47400 FAUGUEROLLES<br>
+            Si vous estimez que vos droits ne sont pas respectés ou que le traitement de vos données personnelles n’est pas conforme aux règles imposées par la règlementation en vigueur, notamment le RGPD, vous pouvez adresser une plainte auprès de la CNIL en ligne ou par courrier postal à l’adresse suivante : 3 Place de Fontenoy – TSA 80715 – 75334 Paris Cedex 07<br><br>
+
+            <strong>Responsabilité des clients</strong><br>
+            Les Utilisateurs reconnaissent que les données qu’ils divulguent sur le site de COAXIS sont valides, adéquates et à jour. Seuls les Utilisateurs sont tenus pour responsables des données personnelles qu’ils communiquent sur les différents sites et services.<br>
+            Les Utilisateurs s’engagent également à ne pas porter atteinte à la vie privée et à la protection des données personnelles de toute personne tierce. Il s’agit par exemple de ne pas exercer un droit d’accès au nom d’une tierce personne.<br><br>
+
+            <strong>En cas de violation de données</strong><br>
+            En cas de violation de données à caractère personnel, COAXIS s’engage à la documenter en interne, ainsi qu’à la notifier à la CNIL dès lors qu’elle est susceptible d’engendrer un risque élevé pour les droits et libertés des personnes physiques, et ce, dans les meilleurs délais et, si possible 72 heures au plus tard après en avoir pris connaissance.<br>
+            De plus, dès lors que la violation de données à caractère personnel est susceptible d’engendrer un risque élevé pour les droits et libertés des personnes physiques, COAXIS s’engage à notifier les personnes concernées dont les données sont concernées par ladite violation dans les meilleurs délais.<br><br>
+
+            <strong>Nullité partielle de la politique</strong><br>
+            Si une disposition de la présente politique vient à être rendue caduque en vertu d’une loi, d’un règlement ou d’une décision de justice, elle sera réputée non écrite. Les autres dispositions de la présente politique resteront cependant en vigueur et en l’état.<br><br>
+            
+            
+            </p> 
+                </div>    
+                </div>
+
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact">
+                <p><a href="contact.php" target="_blank">Contact</a></p>
+            </div>
+            <div class="footer-center">
+                <p><a href="https://www.coaxis.com/" target="_blank">www.coaxis.com</a></p>
+            </div>
+            <div class="footer-right">
+                <p>COAXIS SOLUTIONS&copy;2024-Tous droits réservés-
+                <a href="mentions-legales.html" target="_blank">Mentions légales</a>-
+                <a href="https://www.linkedin.com/company/3w-coaxis/" target="_blank">
+                        <img src="images/linkedin.png" alt="LinkedIn" class="linkedin-logo">
+                    </a></p>
+            </div>
+        </div>
+    </footer>
+</div>
+</footer>
+
+    <!-- Scripts nécessaires -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Fonction pour définir le lien actif et agrandir son texte
+        function setActiveLink(event) {
+            // Empêcher le comportement par défaut du lien
+            event.preventDefault();
+            // Sélectionner tous les liens de la nav
+            var links = document.querySelectorAll('.nav-link');
+            // Supprimer la classe 'active' de tous les liens
+            links.forEach(function(link) {
+                link.classList.remove('active');
+            });
+            // Ajouter la classe 'active' au lien cliqué
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html> 
